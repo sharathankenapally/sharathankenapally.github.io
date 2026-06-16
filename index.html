@@ -53,7 +53,7 @@ nav .name{font-size:14px;font-weight:600;color:var(--fg)}
 nav .links{display:flex;gap:24px;font-size:13px}
 nav .links a{color:var(--muted);transition:color .2s}
 nav .links a:hover{color:var(--fg)}
-@media(max-width:680px){nav .links{display:none}}
+@media(max-width:580px){nav .links{display:none}}
 
 /* ── HERO ── */
 .hero{
@@ -74,14 +74,6 @@ nav .links a:hover{color:var(--fg)}
   display:flex;flex-direction:column;align-items:center;
   text-align:center;padding:0 24px;gap:0;
 }
-
-/* Avatar Easter Egg Styling */
-.avatar {
-  position: relative;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-.avatar.spin { transform: rotateY(360deg); }
 
 /* Hero text */
 .hero-name{font-size:clamp(2rem,5vw,4rem);font-weight:700;line-height:1.08;margin-bottom:8px}
@@ -154,7 +146,7 @@ nav .links a:hover{color:var(--fg)}
 .stat-val{font-size:18px;font-weight:700;color:var(--fg)}
 .stat-desc{font-size:12px;color:var(--muted);margin-top:2px}
 
-/* ── PROJECTS & INSIGHTS ── */
+/* ── PROJECTS ── */
 .projects-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
@@ -200,8 +192,6 @@ nav .links a:hover{color:var(--fg)}
 .gh-link:hover{color:var(--fg);border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
 .gh-link svg{width:12px;height:12px}
 .accent-dot{width:24px;height:3px;border-radius:999px}
-
-.insight-meta { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); display:flex; gap:10px; margin-bottom:12px;}
 
 /* ── TIMELINE (experience + edu side by side) ── */
 .dual{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
@@ -260,16 +250,10 @@ nav .links a:hover{color:var(--fg)}
 .submit-btn:disabled{opacity:.7;cursor:default;transform:none}
 
 /* ── CHAT WIDGET ── */
-#chat-widget { 
-  position: fixed; bottom: 24px; right: 24px; z-index: 999; 
-}
-.chat-btn { 
-  width: 56px; height: 56px; border-radius: 50%; background: var(--gradient); color: #06060c; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 24px rgba(34,211,238,.35); cursor: pointer; border: none; transition: transform .2s; 
-}
+#chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 999; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+.chat-btn { width: 56px; height: 56px; border-radius: 50%; background: var(--gradient); color: #06060c; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 24px rgba(34,211,238,.35); cursor: pointer; border: none; transition: transform .2s; }
 .chat-btn:hover { transform: scale(1.05); }
-.chat-window { 
-  position: absolute; bottom: 72px; right: 0; width: 340px; height: 440px; background: rgba(8,8,15,.9); backdrop-filter: blur(18px); border: 1px solid var(--border); border-radius: var(--r); display: flex; flex-direction: column; overflow: hidden; transform-origin: bottom right; transform: scale(0); opacity: 0; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s; pointer-events: none; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
+.chat-window { width: 340px; height: 440px; background: rgba(8,8,15,.85); backdrop-filter: blur(18px); border: 1px solid var(--border); border-radius: var(--r); display: flex; flex-direction: column; overflow: hidden; transform-origin: bottom right; transform: scale(0); opacity: 0; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s; pointer-events: none; }
 .chat-window.open { transform: scale(1); opacity: 1; pointer-events: auto; }
 .chat-header { padding: 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,.2); }
 .chat-header-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; }
@@ -310,7 +294,6 @@ footer .footer-links{display:flex;gap:20px}
     <div class="links">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#insights">Insights</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </div>
@@ -354,7 +337,6 @@ footer .footer-links{display:flex;gap:20px}
       </a>
       <a href="#contact" class="btn btn-outline">Get in Touch</a>
       
-      <!-- Resume Download Button -->
       <a href="Sharath_Resume.pdf" download class="btn btn-outline">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Resume
@@ -440,17 +422,6 @@ footer .footer-links{display:flex;gap:20px}
   </div>
 </section>
 
-<!-- Insights / Technical Writing Section -->
-<section id="insights" class="section" style="padding-top:0">
-  <div class="container">
-    <div class="reveal">
-      <p class="sec-label">Technical Writing</p>
-      <h2 class="sec-title grad">Insights</h2>
-    </div>
-    <div class="projects-grid" id="insightsGrid"></div>
-  </div>
-</section>
-
 <section id="experience" class="section">
   <div class="container">
     <div class="dual">
@@ -477,17 +448,17 @@ footer .footer-links{display:flex;gap:20px}
     <div class="contact-inner reveal">
       <div class="contact-card">
         
-        <form id="contactForm" novalidate>
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
           <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
           <input type="checkbox" name="botcheck" style="display: none;">
           <input type="hidden" name="subject" value="New Contact from Portfolio">
 
           <div class="form-row">
-            <div class="field"><label>Name</label><input name="name" type="text"/><div class="err" data-for="name"></div></div>
-            <div class="field"><label>Email</label><input name="email" type="email"/><div class="err" data-for="email"></div></div>
+            <div class="field"><label>Name</label><input name="name" type="text" required/><div class="err" data-for="name"></div></div>
+            <div class="field"><label>Email</label><input name="email" type="email" required/><div class="err" data-for="email"></div></div>
           </div>
-          <div class="field"><label>Subject</label><input name="contact_subject" type="text"/><div class="err" data-for="contact_subject"></div></div>
-          <div class="field"><label>Message</label><textarea name="message" rows="5"></textarea><div class="err" data-for="message"></div></div>
+          <div class="field"><label>Subject</label><input name="contact_subject" type="text" required/><div class="err" data-for="contact_subject"></div></div>
+          <div class="field"><label>Message</label><textarea name="message" rows="5" required></textarea><div class="err" data-for="message"></div></div>
           <button type="submit" class="submit-btn" id="submitBtn"><span id="btnText">Send Message</span></button>
         </form>
 
@@ -507,18 +478,17 @@ footer .footer-links{display:flex;gap:20px}
   </div>
 </footer>
 
-<!-- Floating Chat Widget -->
 <div id="chat-widget">
   <div class="chat-window" id="chatWindow">
     <div class="chat-header">
       <div class="chat-header-dot"></div>
-      <div class="chat-header-title">Chat with Sharath's AI Agent</div>
+      <div class="chat-header-title">Chat with Sharath's AI</div>
     </div>
     <div class="chat-body" id="chatBody">
-      <div class="msg bot">Hi! I'm an AI assistant trained on Sharath's background. Ask me about his experience, technical skills, or education!</div>
+      <div class="msg bot">Hi! I'm an AI agent trained on Sharath's resume. Ask me about his experience, projects, or skills!</div>
     </div>
     <div class="chat-input-area">
-      <input type="text" id="chatInput" class="chat-input" placeholder="Ask about his skills, experience..." autocomplete="off" />
+      <input type="text" id="chatInput" class="chat-input" placeholder="Experience with LangChain?" autocomplete="off" />
       <button class="chat-send" id="chatSend">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
       </button>
@@ -582,6 +552,7 @@ const education = [
 /* ── RENDER PROJECTS & INSIGHTS ── */
 function renderCards(dataArray, gridId, linkText) {
   const grid = document.getElementById(gridId);
+  if (!grid) return; // Prevent error if ID isn't found
   dataArray.forEach(p => {
     const card = document.createElement('div');
     card.className = 'proj-card reveal';
@@ -608,7 +579,6 @@ function renderCards(dataArray, gridId, linkText) {
   });
 }
 renderCards(projects, 'projectsGrid', 'GitHub');
-renderCards(insights, 'insightsGrid', 'Read');
 
 /* ── RENDER EXPERIENCE ── */
 experience.forEach(e => {
@@ -751,7 +721,7 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-/* ── CHAT WIDGET LOGIC ── */
+/* ── CHAT WIDGET LOGIC (FIXED) ── */
 const chatToggle = document.getElementById('chatToggle');
 const chatWindow = document.getElementById('chatWindow');
 const chatInput = document.getElementById('chatInput');
@@ -772,21 +742,21 @@ const handleChatSubmit = () => {
   chatInput.value = '';
   chatBody.scrollTop = chatBody.scrollHeight;
   
-  // Smart local keyword matching for immediate functionality
-  let reply = "I'm currently running as a local mockup agent. You can hook me up to a FastAPI backend soon, but for now I can tell you that Sharath has extensive experience building multi-agent systems and enterprise architectures!";
+  // Local Rule-Based Responses 
+  let reply = "I'm an AI assistant trained on Sharath's background. I can tell you about his skills, experience, and education. Try asking 'What is your experience with LangChain?'";
   const lowText = text.toLowerCase();
   
-  if (lowText.includes('skill') || lowText.includes('langchain') || lowText.includes('python') || lowText.includes('agent')) {
-    reply = "Sharath specializes in **Generative AI architectures**. His stack includes Python, FastAPI, LangChain, LangGraph, and OpenAI agent frameworks, alongside building real-time RAG data pipelines.";
+  if (lowText.includes('langchain') || lowText.includes('skill') || lowText.includes('python') || lowText.includes('agent')) {
+    reply = "Sharath specializes in <strong>Generative AI architectures</strong>. His stack includes Python, FastAPI, LangChain, LangGraph, and OpenAI agent frameworks, alongside building real-time RAG data pipelines.";
   } else if (lowText.includes('experience') || lowText.includes('work') || lowText.includes('capgemini') || lowText.includes('cortracker')) {
-    reply = "Sharath is currently a **Software Engineer - AI** at Cortracker Inc in Texas, architecting intelligent agentic systems for HR automation. Previously, he worked at Capgemini Engineering.";
-  } else if (lowText.includes('education') || lowText.includes('degree') || lowText.includes('university') || lowText.includes('unt')) {
-    reply = "He holds a **Master of Science in Advanced Data Analytics** from the University of North Texas, giving him a solid grounding in machine learning data engineering.";
+    reply = "Sharath is currently a <strong>Software Engineer - AI</strong> at Cortracker Inc in Texas, architecting intelligent agentic systems for HR automation. Previously, he worked as a Software Engineer at Capgemini Engineering.";
+  } else if (lowText.includes('education') || lowText.includes('degree') || lowText.includes('university') || lowText.includes('unt') || lowText.includes('college')) {
+    reply = "He holds a <strong>Master of Science in Advanced Data Analytics</strong> from the University of North Texas, and a B.Tech in Computer Science and Engineering.";
   } else if (lowText.includes('contact') || lowText.includes('email') || lowText.includes('hire')) {
-    reply = "You can message Sharath instantly using the contact form right on this page, or email him directly at **sharath.ankenapally@gmail.com**.";
+    reply = "You can message Sharath instantly using the contact form right on this page, or email him directly at <strong>sharath.ankenapally@gmail.com</strong>.";
   }
 
-  // Simulate AI Thinking
+  // Simulate AI Typing Delay
   setTimeout(() => {
     chatBody.insertAdjacentHTML('beforeend', `<div class="msg bot">${reply}</div>`);
     chatBody.scrollTop = chatBody.scrollHeight;
@@ -797,11 +767,11 @@ chatSend.addEventListener('click', handleChatSubmit);
 chatInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleChatSubmit(); });
 
 /* ── EASTER EGGS ── */
-// Console Welcome Message
+// 1. Console Message
 console.log('%c👋 Hi there, fellow dev!', 'color: #22d3ee; font-size: 24px; font-weight: bold;');
 console.log('%cLooking under the hood? The source code is clean, but my AI pipelines are even cleaner. Feel free to reach out!', 'color: #a855f7; font-size: 14px;');
 
-// Keyboard Listener for Secret Avatar Flip
+// 2. Keyboard Listener for Spinning Avatar
 let keys = [];
 window.addEventListener('keydown', (e) => {
   keys.push(e.key.toLowerCase());
@@ -810,9 +780,9 @@ window.addEventListener('keydown', (e) => {
     const avatar = document.getElementById('avatarEl');
     if(avatar) {
       avatar.classList.add('spin');
-      setTimeout(() => avatar.classList.remove('spin'), 600);
+      setTimeout(() => avatar.classList.remove('spin'), 600); // Remove class after animation
     }
-    keys = [];
+    keys = []; // Reset
   }
 });
 </script>
