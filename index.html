@@ -288,8 +288,6 @@ footer .footer-links{display:flex;gap:20px}
           <input type="hidden" name="access_key" value="3b94fd3f-8ad4-47bb-bf2c-dd143e4aed86"/>
           <!-- KEY FIX: redirect:false tells Web3Forms NOT to redirect -->
           <input type="hidden" name="redirect" value="false"/>
-          <input type="hidden" name="subject" value="New Contact from Portfolio — Sharath Ankenapally"/>
-          <input type="hidden" name="from_name" value="Portfolio Contact Form"/>
           <!-- honeypot spam trap -->
           <input type="checkbox" name="botcheck" style="display:none"/>
 
@@ -297,7 +295,7 @@ footer .footer-links{display:flex;gap:20px}
             <div class="field"><label>Name</label><input name="name" type="text" placeholder="Your name"/><div class="err" data-for="name"></div></div>
             <div class="field"><label>Email</label><input name="email" type="email" placeholder="you@example.com"/><div class="err" data-for="email"></div></div>
           </div>
-          <div class="field"><label>Subject</label><input name="contact_subject" type="text" placeholder="What's this about?"/><div class="err" data-for="contact_subject"></div></div>
+          <div class="field"><label>Subject</label><input name="subject" type="text" placeholder="What's this about?"/><div class="err" data-for="subject"></div></div>
           <div class="field"><label>Message</label><textarea name="message" rows="5" placeholder="Your message…"></textarea><div class="err" data-for="message"></div></div>
 
           <div id="formToast"></div>
@@ -435,7 +433,7 @@ const form=document.getElementById('contactForm');
 const rules={
   name:v=>v.trim().length<2?'Name is too short':'',
   email:v=>!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())?'Enter a valid email':'',
-  contact_subject:v=>v.trim().length<3?'Add a subject':'',
+  subject:v=>v.trim().length<3?'Add a subject':'',
   message:v=>v.trim().length<10?'Message is too short':'',
 };
 
